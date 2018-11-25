@@ -6,7 +6,7 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 ## Setting up
 
-- Create your `.docker.env` and `.env` files.  Check the examples included in the package.  The `.docker.env` file has variables necessary to enable XDEBUG in php.  You **_ONLY_** need this if you intend to use an IDE such as PHPStorm to develop your application.  In particular, pay attention to the "Remote Host" variable.  This IP must point to your computer's IP.
+- Create your `.docker.env` and `.env` files.  Copy and rename the `*.env.example` examples included in the package.  The `.docker.env` file has variables necessary to enable XDEBUG in php.  You **_ONLY_** need this if you intend to use an IDE such as PHPStorm to develop your application.  In particular, pay attention to the "Remote Host" variable.  This IP must point to your computer's IP.
 
 - Check the `docker-compose.yml` file and make sure that the port mappings are compatible with your setup, in particular, port 8080 should be free, otherwise, adjust as necessary. This will be the port for the Apache web server of your development environment.
 
