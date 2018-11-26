@@ -14,7 +14,7 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 - In your terminal or command line, run `docker-compose up --build -d` and wait until the development environment is fully built.
 
-- To run a terminal on the Docker environemnt use `docker-compose exec -d app bash`.  This is an interactive terminal running on your Docker container.
+- To run a terminal on the Docker environemnt use `docker-compose exec app bash`.  This is an interactive terminal running on your Docker container.
 
 - You now need to set up the app key.  Run `docker-compose exec app bash` if you haven't done so and in the new prompt run `php artisan key:generate`.  Use `exit` to go back to your machine's prompt.
 
@@ -27,7 +27,7 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 - You now have a development environment of your own. Don't forget to use version control!
 
-- Finally, remember if you need to run some commands in the Docker machine you can get to the interactive bash prompt by using `docker-compose exec -d app bash`.  Use `exit` to leave this interactive bash session.
+- Finally, remember if you need to run some commands in the Docker machine you can get to the interactive bash prompt by using `docker-compose exec app bash`.  Use `exit` to leave this interactive bash session.
 
 
 ### If you have any questions or comments with regards to this project, please email `g.trombino@ulster.ac.uk`
