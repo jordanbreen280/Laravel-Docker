@@ -50,3 +50,5 @@ RUN  composer check-platform-reqs \
 	--no-plugins \
 	--no-scripts \
 	--prefer-dist
+	
+RUN php artisan key:generate
