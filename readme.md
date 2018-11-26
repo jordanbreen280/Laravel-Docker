@@ -14,6 +14,10 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 - In your terminal or command line, run `docker-compose up --build -d` and wait until the development environment is fully built.
 
+- To run a terminal on the Docker environemnt use `docker-compose exec -d app bash`.  This is an interactive terminal running on your Docker container.
+
+- You now need to set up the app key.  Run `docker-compose exec app bash` if you haven't done so and in the new prompt run `php artisan key:generate`.  Use `exit` to go back to your machine's prompt.
+
 ### Using the environment
 
 - Point your browser to your configured IP address (localhost if you are using Docker Desktop, or the IP address you jotted down before for the docker virtual machine if you are running Docker Toolbox) using the port in `docker-compose.yml` and you should see the Laravel welcome screen, for example:
@@ -23,7 +27,7 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 - You now have a development environment of your own. Don't forget to use version control!
 
-- Finally, you may need to run some commands in the Docker machine.  To run a terminal on the Docker environemnt use `docker-compose exec -d app bash`
+- Finally, remember if you need to run some commands in the Docker machine you can get to the interactive bash prompt by using `docker-compose exec -d app bash`.  Use `exit` to leave this interactive bash session.
 
 
 ### If you have any questions or comments with regards to this project, please email `g.trombino@ulster.ac.uk`
