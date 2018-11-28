@@ -6,7 +6,7 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 ## Setting up
 
-- Create your `.docker.env` and `.env` files.  Copy and rename the `*.env.example` examples included in the package.  The `.docker.env` file has variables necessary to enable XDEBUG in php.  You **_ONLY_** need this if you intend to use an IDE such as PHPStorm to develop your application.  In particular, pay attention to the "Remote Host" variable.  This IP must point to your computer's IP.
+- Create your `.docker.env` and `.env` files. To do this, Copy and rename the `*.env.example` examples included in the package.  This may be easier done from the command line as these files are considered hidden by the OS.  In macOS/Bash use `cp .docker.env.example .docker.env` and `cp .env.example .env`.  In Windows command prompt use `copy .docker.env.example .docker.env` and `copy .env.example .env`.  The `.docker.env` file has some variables necessary to enable XDEBUG in php.  You **_ONLY_** need this if you intend to use an IDE such as PHPStorm to develop your application.  In particular, pay attention to the "Remote Host" variable.  This IP must point to your computer's IP.
 
 - Check the `docker-compose.yml` file and make sure that the port mappings are compatible with your setup, in particular, port 8080 should be free, otherwise, adjust as necessary. This will be the port for the Apache web server of your development environment.
 
@@ -23,14 +23,14 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 - Point your browser to your configured IP address (localhost if you are using Docker Desktop, or the IP address you jotted down before for the docker virtual machine if you are running Docker Toolbox) using the port in `docker-compose.yml` and you should see the Laravel welcome screen, for example:
 `localhost:8080`.  Your database should be reachable at the same IP in port 13306 from any database manager you wish to use.
 
-- IMPORTANT: Delete the `.git` folder in this repository to unlink this instance from GitLab BEFORE you try to put your project under version control.  You can then follow the instructions in Gitlab to add an existing project under version control when you create a new project.
+- **_IMPORTANT_**: Delete the `.git` folder in this repository to unlink this instance from GitLab BEFORE you try to put your project under version control.  You can then follow the instructions in Gitlab to add an existing project under version control when you create a new project.
 
 - You now have a development environment of your own. Don't forget to use version control!
 
-- Finally, remember if you need to run some commands in the Docker machine you can get to the interactive bash prompt by using `docker-compose exec app bash`.  Use `exit` to leave this interactive bash session.
+- Finally, remember if you need to run some commands in the Docker machine, for example `php artisan migrate`, you can get to the interactive bash prompt by using `docker-compose exec app bash`.  Use `exit` to leave this interactive bash session.
 
 
-### If you have any questions or comments with regards to this project, please email `g.trombino@ulster.ac.uk`
+### If you have any questions or comments with regards to this project, please email [g.trombino@ulster.ac.uk](mailto:g.trombino@ulster.ac.uk)
 
 *****
 
