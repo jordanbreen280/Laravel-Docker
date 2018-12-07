@@ -6,7 +6,11 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 ## Setting up
 
-- Create your `.docker.env` and `.env` files. To do this, Copy and rename the `*.env.example` examples included in the package.  This may be easier done from the command line as these files are considered hidden by the OS.  In macOS/Bash use `cp .docker.env.example .docker.env` and `cp .env.example .env`.  In Windows command prompt use `copy .docker.env.example .docker.env` and `copy .env.example .env`.  The `.docker.env` file has some variables necessary to enable XDEBUG in php.  You **_ONLY_** need this if you intend to use an IDE such as PHPStorm to develop your application.  In particular, pay attention to the "Remote Host" variable.  This IP must point to your computer's IP.
+- Clone this repository
+
+- Rename your folder to anything you want
+
+- Create your `.docker.env` and `.env` files. To do this, Copy and rename the `*.env.example` examples included in the package.  This may be easier done from the command line as these files are considered hidden by the OS.  In macOS/Bash use `cp .docker.env.example docker/.docker.env` and `cp .env.example .env`.  In Windows command prompt use `copy .docker.env.example docker\.docker.env` and `copy .env.example .env`.  The `.docker.env` file has some variables necessary to enable XDEBUG in php.  You **_ONLY_** need this if you intend to use an IDE such as PHPStorm to develop your application.  In particular, pay attention to the "Remote Host" variable.  This IP must point to your computer's IP.
 
 - Check the `docker-compose.yml` file and make sure that the port mappings are compatible with your setup, in particular, port 8080 should be free, otherwise, adjust as necessary. This will be the port for the Apache web server of your development environment.
 
