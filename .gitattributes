@@ -2,5 +2,4 @@
 *.css linguist-vendored
 *.scss linguist-vendored
 *.js linguist-vendored
-*.sh test eol=lf
 CHANGELOG.md export-ignore
