@@ -23,5 +23,7 @@ services:
     environment:
       - MYSQL_DATABASE=dockerphp
       - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=dockerphp
+      - MYSQL_PASSWORD=secret
 volumes:
   dbdata:
