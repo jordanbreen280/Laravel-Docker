@@ -14,6 +14,18 @@ services:
     links:
       - db:db
     env_file: docker/.docker.env
+  phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        depends_on:
+            - db
+        container_name: phpmyadmin
+        environment:
+            - PMA_ARBITRARY=1
+        restart: always
+        ports:
+            - 8889:80
+        volumes:
+            - /sessions
   db:
     image: mysql:5.7
     volumes:
