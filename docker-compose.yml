@@ -10,7 +10,7 @@ services:
       - "8080:80"
     volumes:
       - ./:/srv/app
-      - ./vendor:/srv/app/vendor
+      - /srv/app/vendor
     links:
       - db:db
     env_file: .docker/.docker.env
