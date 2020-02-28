@@ -1,6 +1,6 @@
 # Laravel Development Environment
 ***
-This is a full development environment built around Docker for the Laravel framework.  This package contains setup files to run an apache web server, mysql database server and a full installation of Laravel (check version tag for details).  
+This is a full development environment built around Docker for the Laravel framework.  This package contains setup files to run an apache web server, mysql database server and a full installation of Laravel (check version tag for details).  The image includes a phpMyAdmin GUI database manager for convenience.
 
 To run, you require [Docker Desktop](https://www.docker.com/products/docker-desktop) (macOS and windows with Hyper-V) or [Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_windows/) (windows without Hyper-V running) already installed.
 
@@ -10,7 +10,7 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 - Rename your folder to anything you want
 
-- Create your `.docker.env` and `.env` files. To do this, Copy and rename the `*.env.example` examples included in the package.  This may be easier done from the command line as these files are considered hidden by the OS.  In macOS/Bash use `cp .docker.env.example docker/.docker.env` and `cp .env.example .env`.  In Windows command prompt use `copy .docker.env.example docker\.docker.env` and `copy .env.example .env`.  The `.docker.env` file has some variables necessary to enable XDEBUG in php.  You **_ONLY_** need this if you intend to use an IDE such as PHPStorm to develop your application.  In particular, pay attention to the "Remote Host" variable.  This IP must point to your computer's IP.
+- Create your `.docker.env` and `.env` files. To do this, Copy and rename the `*.env.example` examples included in the package.  This may be easier done from the command line as these files are considered hidden by the OS.  In macOS/Bash use `cp .docker.env.example .docker/.docker.env` and `cp .env.example .env`.  In Windows command prompt use `copy .docker.env.example .docker\.docker.env` and `copy .env.example .env`.  The `.docker.env` file has some variables necessary to enable XDEBUG in php.  You **_ONLY_** need this if you intend to use an IDE such as PHPStorm to develop your application.  In particular, pay attention to the "Remote Host" variable.  This IP must point to your computer's IP.
 
 - Check the `docker-compose.yml` file and make sure that the port mappings are compatible with your setup, in particular, port 8080 should be free, otherwise, adjust as necessary. This will be the port for the Apache web server of your development environment.
 
@@ -22,10 +22,12 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 - You now need to set up the app key.  Run `docker-compose exec app bash` if you haven't done so and in the new prompt run `php artisan key:generate`.  Use `exit` to go back to your machine's prompt.
 
+- To shutdown the environment use `docker-compose down -v`.  This will shutdown the container and disconnect any volumes (shared folders). You may use `docker-compose up -d` to bring it up again.  If you have made modifications to the Dockerfile in `.docker/Dockerfile` you may need to rebuild the image for these changes to take effect.  run `docker-compose up -d --build` instead.
+
 ### Using the environment
 
 - Point your browser to your configured IP address (localhost if you are using Docker Desktop, or the IP address you jotted down before for the docker virtual machine if you are running Docker Toolbox) using the port in `docker-compose.yml` and you should see the Laravel welcome screen, for example:
-`localhost:8080`.  Your database should be reachable at the same IP in port 13306 from any database manager you wish to use.
+`localhost:8080`.  Your database should be reachable at the same IP in port `13306` from any database manager you wish to use.
 
 - **_IMPORTANT_**: Delete the `.git` folder in this repository to unlink this instance from GitLab BEFORE you try to put your project under version control.  You can then follow the instructions in Gitlab to add an existing project under version control when you create a new project.
 
@@ -33,6 +35,16 @@ To run, you require [Docker Desktop](https://www.docker.com/products/docker-desk
 
 - Finally, remember if you need to run some commands in the Docker machine, for example `php artisan migrate`, you can get to the interactive bash prompt by using `docker-compose exec app bash`.  Use `exit` to leave this interactive bash session.
 
+### Database
+
+- The database server is accessible through port `13306`.  Check the details in the `docker-comopse.yml` file for configured `root` User and second user credentials.
+
+#### phpMyAdmin
+
+- You can use the following default details to connect to the database from phpMyAdmin:  
+    - server: `db`
+    - username: `root`
+    - password: as specified in `docker-compose.yml`
 
 ### If you have any questions or comments with regards to this project, please email [g.trombino@ulster.ac.uk](mailto:g.trombino@ulster.ac.uk)
 
