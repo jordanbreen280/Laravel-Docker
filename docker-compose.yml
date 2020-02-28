@@ -13,7 +13,7 @@ services:
       - ./vendor:/srv/app/vendor
     links:
       - db:db
-    env_file: docker/.docker.env
+    env_file: .docker/.docker.env
   phpmyadmin:
         image: phpmyadmin/phpmyadmin
         depends_on:
