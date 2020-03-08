@@ -17,3 +17,7 @@ RUN  composer check-platform-reqs \
 	--prefer-dist \
 	&& npm install \
 	&& npm install gulp
+
+COPY /.docker/bash/aliases /root/.bash_profile
+
+RUN cat /root/.bash_profile >> ~/.bashrc
